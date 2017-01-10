@@ -18,3 +18,13 @@ for(let i=0;i<10;i++){
 }
 ```
 이 소스코드를 실행해 봅시다.
+
+터미널에서 node echo.js 를 하면 다음과 같이 실행을 해보고 잘 되는것을 확인했다면
+
+>$ git add .      #현재 디렉토리 전부를 메모리에 로딩
+>
+>$ git commit -m "first commit" #메모리에 로딩된것을 현재 넘버의 커밋으로 이전
+
+>$ git push origin master  #깃 리파짓토리 서버에 저장.
+
+>
