@@ -1,0 +1,14 @@
+You must enter ":BundleInstall" on vim command mode
+
+i don't know why desodo/vim-matchit is expired 
+Instead of the exired bundle, it could be available to use "jwhitley/vim-matchit" 
+If you use 'vim-matchit bundle',Open "~/.vim/bundles.vim" and Modify the expired line to "jwhitley/vim-matchit"
+
+Detail See
+
+https://github.com/humiazuzu/dot-vimrc
+
+
+
+
+
