@@ -1,9 +1,11 @@
 #!bin/bash
 
-sudo apt-get install -y tmux zsh vim git gcc make cmake python-pip
+sudo apt-get install -y tmux zsh vim git gcc make cmake python-pip python3-pip
 #dot vimrc setting
 sudo apt-get install -y vim-gtk ack-grep ctags
+
 pip install --upgrade pip
+pip3 install --upgrade pip
 
 #setting tmux 
 #https://github.com/tony/tmux-config
@@ -54,6 +56,14 @@ git clone git://github.com/humiaozuzu/dot-vimrc.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vi ubuntu-config/dot-vimsetting
+
+#markdown reader 
+# pip base on python2.7 can't install grip.
+pip3 install grip 
+
+#test 
+#grip ~/ubuntu-config/README.md
+
 
 
 # the end.
