@@ -1,13 +1,42 @@
 #!bin/bash
 
 sudo apt-get install -y tmux zsh vim git gcc make cmake python-pip python3-pip
-#dot vimrc setting
+#dot vimrc install packages
 sudo apt-get install -y vim-gtk ack-grep ctags
+
+chsh -s `which zsh`
+url -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+zsh
+source ~/.zshrc
+echo "source ~/.develop" >> ~/.zshrc
+
+touch ~/.develop
+echo "#!/bin/sh" >> ~/.develop
+echo " " >> ~/.develop
+echo "NODE_HOME=/usr/local/develop/language/node-6.9.4" >> ~/.develop
+echo "PYENV_ROOT=$HOME/.pyenv" >> ~/.develop
+echo "PATH=$PATH:$NODE_HOME/bin:$PYENV_ROOT/bin" >> ~/.develop
+
+source ~/.zshrc
+
+
+
+
 
 pip install --upgrade pip
 pip3 install --upgrade pip
 
-#setting tmux 
+sudo mkdir /usr/local/develop
+sudo chown -R likemilk:likemilk develop
+mkdir /usr/local/develop/language
+
+wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x64.tar.xz
+tar xvf node-v6.9.4-linux-x64.tar.xz
+mv node-v6.9.4-linux-x64.tar.xz /usr/local/develop/language/node-6.9.4
+
+
+
+#setting tmux
 #https://github.com/tony/tmux-config
 #(all setting is following this git page)
 
