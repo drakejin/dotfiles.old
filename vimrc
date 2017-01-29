@@ -124,6 +124,11 @@ Plug 't9md/vim-choosewin'               " Window chooser
 Plug 'lilydjwg/colorizer'               " Paint css colors with the real color
 Plug 'rosenfeld/conque-term'            " Consoles as buffers, To use any command in vi editor. execute :ConqueTermSplit top
 
+
+" ------- javascript eslint ----
+Plug 'mtscout6/syntastic-local-eslint.vim'
+
+
 "--------------------
 " Color Schemes
 "--------------------
@@ -164,7 +169,8 @@ set shiftwidth=4
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+" ssibal airbnb jot got eun ..
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " always show status bar
 set ls=2
@@ -330,15 +336,15 @@ let g:syntastic_enable_signs = 0
 
 
 
-
-
-
 " custom icons (enable them if you use a patched font, and enable the previous setting)
 " if you can't see  this character '⮀'  have to close this comment line  
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_style_warning_symbol = '💩'
+
+
+
 
 " Python-mode ------------------------------
 
@@ -442,3 +448,27 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
+
+
+
+" eslint settings"
+" 2017-01-30
+" syntactic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+
+
+
+
