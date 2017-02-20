@@ -26,6 +26,8 @@ git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pye
 
 #autoenv install
 git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+
+echo "source ~/.dotfiles/python/pythonValues" >> ~/.dotfiles/zshrcCustomValues
 exec "$SHELL"
 
 
