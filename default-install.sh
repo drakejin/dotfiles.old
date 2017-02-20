@@ -4,20 +4,28 @@
 # @last-update : 2017-01-26
 # @file : defualt-install.sh 
 # @git : https://github.com/drake-jin/.dotfiles 
-# @desc : tooooooooooo booooooooaaarrrrrrrrrriiiiinnnnnngggg first installation on ubuntu. then, i organized some commands.
+# @desc : 
+#   1. install packages of basic
+#   2. install pip,pip3
+#   3. tmux setting and power fonts
+#   4. .gitconfig / .user-value / .vimrc
 #
+# !!Notice :
+#    this setting can't control well-known port cuase' Develop language is owned for normal user.
+#   therefore, if you use well-known port, You should use ufw to redirect to non well-known ports from well-knowns.
 ################################################
 
 #Init package installations
 #Please Run install.sh on user auth. 
 sudo apt-get install -y git vim tmux gcc make cmake
 
+
 #Setting zsh
 sudo apt-get install -y zsh
 chsh -s `which zsh`
 url -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 zsh
-echo "source ~/.dotfiles/.user-value" >> ~/.zshrc
+echo "source ~/.dotfiles/.zshrcCustomValues" >> ~/.zshrc
 
 source ~/.zshrc
 
@@ -78,6 +86,8 @@ pip install tmuxp
 #fisa-vimrc + humiaozuzu-vimrc dependency
 sudo apt-get install curl vim exuberant-ctags git ack-grep
 sudo pip install pep8 flake8 pyflakes isort yapf
+
+rm -rf ~/.vimrc ~/.vim ~/.viminfo ~/.gitconfig
 
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
