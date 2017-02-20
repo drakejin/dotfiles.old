@@ -16,6 +16,12 @@
 # 설치
 pyenv, virtualenv, autoenv 순으로 설치할 예정.
 
+  0. requirements
+    기본으로 설치해야할 녀석들 from yyuu/pyenv's wiki 
+      ``` bash
+        sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
+      ```
+
 
   1. pyenv
 yyuu님의 [pyenv](https://github.com/yyuu/pyenv) 오픈소스. 요즘 핫하게 이슈가 달린다. 
