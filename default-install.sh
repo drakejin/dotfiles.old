@@ -23,11 +23,8 @@ sudo apt-get install -y git vim tmux gcc make cmake
 #Setting zsh
 sudo apt-get install -y zsh
 chsh -s `which zsh`
-curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
-
-
-zsh
 echo "source ~/.dotfiles/zshrcCustomValues" >> ~/.zshrc
 
 source ~/.zshrc
