@@ -5,8 +5,4 @@ PATH=$PATH:$NODE_HOME/bin:$PYENV_ROOT/bin
 
 
 
-
-
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv init -)"
-source ~/.autoenv/activate.sh
+source ~/.dotfiles/python/pythonValues
