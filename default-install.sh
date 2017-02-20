@@ -22,7 +22,9 @@ sudo apt-get install -y git vim tmux gcc make cmake
 
 #Setting zsh
 sudo apt-get install -y zsh
-chsh -s `which zsh`
+zsh
+exit
+chsh -s $(which zsh)
 curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 
