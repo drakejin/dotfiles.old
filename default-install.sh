@@ -24,9 +24,9 @@ sudo apt-get install -y git vim tmux gcc make cmake
 sudo apt-get install -y zsh
 chsh -s `which zsh`
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-zsh
 echo "source ~/.dotfiles/zshrcCustomValues" >> ~/.zshrc
 
+zsh
 source ~/.zshrc
 
 #install python2 or python3
@@ -91,6 +91,4 @@ rm -rf ~/.vimrc ~/.vim ~/.viminfo ~/.gitconfig
 
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
-
-
-
+reboot

@@ -1,8 +1,6 @@
-tmux
 NODE_HOME=/usr/local/develop/language/node-6.9.4
 PYENV_ROOT=$HOME/.pyenv
 PATH=$PATH:$NODE_HOME/bin:$PYENV_ROOT/bin
 
 
 
-source ~/.dotfiles/python/pythonValues
