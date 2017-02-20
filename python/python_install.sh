@@ -23,13 +23,9 @@ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-
 
 #virtualenv install
 git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.dotfiles/zshrcCustomValues
-echo 'eval "$(pyenv init -)"' >> ~/.dotfiles/zshrcCustomValues
-exec "$SHELL"
 
 #autoenv install
 git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
-echo 'source ~/.autoenv/activate.sh' >> ~/.dotfiles/zshrcCustomValues
 exec "$SHELL"
 
 
