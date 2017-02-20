@@ -22,7 +22,7 @@ if !filereadable(vim_plug_path)
     silent !mkdir -p ~/.vim/autoload
     "Junegunn,the best of open source creator, is who has worked at kakao co.
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    is_installed_vim_plug =1
+    is_installed_vim_plug = 1
 endif
 
 " manually load vim-plug the first time
