@@ -57,7 +57,7 @@ make
 sudo make install
 cd ~
 tmux source-file ~/.tmux.conf
-sudo pip install psutil
+pip install psutil
 sudo cp ~/.tmux/vendor/basic-cpu-and-memory.tmux /usr/local/bin/tmux-mem-cpu-load
 sudo chmod +x /usr/local/bin/tmux-mem-cpu-load
 #tmux Setting Notice
@@ -85,7 +85,7 @@ pip install tmuxp
 
 #fisa-vimrc + humiaozuzu-vimrc dependency
 sudo apt-get install curl vim exuberant-ctags git ack-grep
-sudo pip install pep8 flake8 pyflakes isort yapf
+pip install pep8 flake8 pyflakes isort yapf
 
 rm -rf ~/.vimrc ~/.vim ~/.viminfo ~/.gitconfig
 
