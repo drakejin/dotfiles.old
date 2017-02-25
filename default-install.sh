@@ -17,7 +17,7 @@
 
 #Init package installations
 #Please Run install.sh on user auth. 
-sudo apt-get install -y git vim tmux gcc make cmake
+sudo apt-get install -y git git-flow vim tmux gcc make cmake
 
 
 #Setting zsh

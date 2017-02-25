@@ -144,39 +144,56 @@ endif
 
 " Vim settings and mappings
 " You can edit them as you wish
-
-" no vi-compatible
-set nocompatible
-
 " allow plugins by file type (required for plugins!)
 filetype plugin on
 filetype indent on
 
+" no vi-compatible
+set nocompatible
 " tabs and spaces handling
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-" tab length exceptions on some file types
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
-" ssibal airbnb jot got eun ..
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
 " always show status bar
 set ls=2
-
 " incremental search
 set incsearch
 " highlighted search results
 set hlsearch
-
-" syntax highlight on
-syntax on
-
 " show line numbers
 set nu
+" Comment this line to enable autocompletion preview window
+" (displays documentation related to the selected completion option)
+" Disabled by default because preview makes the window flicker
+set completeopt-=preview
+" when scrolling, keep cursor 3 lines away from screen border
+set scrolloff=3
+" autocompletion of files and commands behaves like shell
+" (complete only the common part, list the options that match)
+set wildmode=list:longest
+" better backup, swap and undos storage
+set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set backup                        " make backup files
+set backupdir=~/.vim/dirs/backups " where to put backup files
+set undofile                      " persistent undos - undo after you re-open the file
+set undodir=~/.vim/dirs/undos
+set viminfo+=n~/.vim/dirs/viminfo
+
+
+" store yankring history file there too
+let g:yankring_history_dir = '~/.vim/dirs/'
+
+
+syntax highlight on
+syntax on
+
+
+" tab length exceptions on some file types
+autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
+" eslint based airbnb ..
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " tab navigation mappings
 map tn :tabn<CR>
@@ -185,8 +202,8 @@ map tm :tabm
 map tt :tabnew 
 map ts :tab split<CR>
 map <C-S-Right> :tabn<CR>
-imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
+imap <C-S-Right> <ESC>:tabn<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
 
 " navigate windows with meta+arrows
@@ -201,11 +218,6 @@ imap <M-Down> <ESC><c-w>j
 
 " old autocomplete keyboard shortcut
 imap <C-J> <C-X><C-O>
-
-" Comment this line to enable autocompletion preview window
-" (displays documentation related to the selected completion option)
-" Disabled by default because preview makes the window flicker
-set completeopt-=preview
 
 " save as sudo
 ca w!! w !sudo tee "%"
@@ -228,24 +240,6 @@ endif
 if has('gui_running')
     colorscheme wombat
 endif
-
-" when scrolling, keep cursor 3 lines away from screen border
-set scrolloff=3
-
-" autocompletion of files and commands behaves like shell
-" (complete only the common part, list the options that match)
-set wildmode=list:longest
-
-" better backup, swap and undos storage
-set directory=~/.vim/dirs/tmp     " directory to place swap files in
-set backup                        " make backup files
-set backupdir=~/.vim/dirs/backups " where to put backup files
-set undofile                      " persistent undos - undo after you re-open the file
-set undodir=~/.vim/dirs/undos
-set viminfo+=n~/.vim/dirs/viminfo
-" store yankring history file there too
-let g:yankring_history_dir = '~/.vim/dirs/'
-
 " create needed directories if they don't exist
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
@@ -342,6 +336,9 @@ let g:syntastic_style_warning_symbol = '💩'
 
 " Python-mode ------------------------------
 
+" 2017-02-25 yjcho modified
+" pep8 setting /keln/python-mode.git
+
 " don't use linter, we use syntastic for that
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_signs = 0
@@ -349,8 +346,14 @@ let g:pymode_lint_signs = 0
 let g:pymode_folding = 0
 " don't load rope by default. Change to 1 to use rope
 let g:pymode_rope = 0
-" open definitions on same window, and custom mappings for definitions and
-" occurrences
+" open definitions on same window, and custom mappings for definitions and occurrences
+
+" Override run current python file key shortcut to Ctrl-Shift-e
+let g:pymode_run_bind = "<C-S-e>"
+" Override view python doc key shortcut to [Ctrl-Shift-d]
+let g:pymode_doc_bind = "<C-S-d>"
+let g:pymode_python= 'python3'
+
 let g:pymode_rope_goto_definition_bind = ',d'
 let g:pymode_rope_goto_definition_cmd = 'e'
 nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
@@ -461,8 +464,3 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-
-
-
-
-
