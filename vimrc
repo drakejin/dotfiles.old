@@ -184,8 +184,6 @@ set viminfo+=n~/.vim/dirs/viminfo
 " store yankring history file there too
 let g:yankring_history_dir = '~/.vim/dirs/'
 
-
-syntax highlight on
 syntax on
 
 

@@ -23,21 +23,21 @@ sudo apt-get install -y git git-flow vim tmux gcc make cmake
 #Setting zsh
 sudo apt-get install -y zsh
 chsh -s `which zsh`
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-zsh
-echo "source ~/.dotfiles/.zshrcCustomValues" >> ~/.zshrc
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+echo "source ~/.dotfiles/zshrcCustomValues" >> ~/.zshrc
 
+zsh
 source ~/.zshrc
 
 #install python2 or python3
 sudo apt-get install -y python-pip python3-pip
-pip install --upgrade pip
-pip3 install --upgrade pip
+sudo pip install --upgrade pip
+sudo pip3 install --upgrade pip
 
 #pip doesn't support grip package. 
 #grip CLI program can work about reading and writting
 #turn on any browser and enter localhost:6419 that port is default.
-pip3 install grip
+sudo pip3 install grip
 #for test execute this command $greop ~/.dotfile/README.md
 
 
@@ -57,7 +57,7 @@ make
 sudo make install
 cd ~
 tmux source-file ~/.tmux.conf
-pip install psutil
+sudo pip install psutil
 sudo cp ~/.tmux/vendor/basic-cpu-and-memory.tmux /usr/local/bin/tmux-mem-cpu-load
 sudo chmod +x /usr/local/bin/tmux-mem-cpu-load
 #tmux Setting Notice
@@ -80,17 +80,15 @@ rm -rf fonts
 #It is save your workspace(detail is referred to this page 
 #http://tmuxp.git-pull.com/en/latest/quickstart.html
 #this page is tutorial about tmuxp
-pip install tmuxp
+sudo pip install tmuxp
 
 
 #fisa-vimrc + humiaozuzu-vimrc dependency
 sudo apt-get install curl vim exuberant-ctags git ack-grep
-pip install pep8 flake8 pyflakes isort yapf
+sudo pip install pep8 flake8 pyflakes isort yapf
 
 rm -rf ~/.vimrc ~/.vim ~/.viminfo ~/.gitconfig
 
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
-
-
-
+reboot
