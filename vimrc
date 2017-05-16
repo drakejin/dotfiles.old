@@ -1,6 +1,6 @@
 " vim script start 
 " =============        Signature      ===================
-" @version : 0.1
+" @version : -1.1
 " @last-update : 2017-01-26 
 " @file : vimrc
 " @git : https://github.com/drake-jin/.dotfiles/
@@ -68,6 +68,11 @@ Plug 'tpope/vim-surround'               " Surround
 Plug 'scrooloose/nerdcommenter'         " Code commenter
 Plug 'michaeljsmith/vim-indent-object'  " Indent text object
 Plug 'jeetsukumaran/vim-indentwise'     " Indentation based movements
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Quick Search
+Plug 'junegunn/fzf.vim'                                             " Quick Search
+
+
+
 
 "------------------------
 "   Code Completions
@@ -111,6 +116,14 @@ Plug 'Wombat'                           " Gvim colorscheme
 Plug 'YankRing.vim'                     " Yank history navigation
 Plug 'fisadev/vim-ctrlp-cmdpalette'     " Extension to ctrlp, for fuzzy command finder 
 Plug 'fisadev/dragvisuals.vim'          " Drag visual blocks arround
+
+
+
+"-----------------------
+" Gist
+"-----------------------
+Plug 'mattn/gist-vim'
+"Plug 'mattn/webapi-vim'
 
 
 "----------------------
@@ -225,6 +238,14 @@ nmap ,r :Ack
 nmap ,wr :Ack <cword><CR>
 
 
+" vim gist 
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'w3m %URL%'
+let g:gist_post_private = 1
+let g:gist_post_anonymous = 1
+let g:gist_get_multiplefile = 1
 
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
@@ -462,3 +483,147 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+
+" Quick Search Junegunn's fzf Plugin.
+" 2017-05-17
+" Fast Editing
+
+
+
+
+" Global Option
+" This is the default extra key bindings
+let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+            \ { 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+" Command-localOption
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+
+
+
+
+
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+            \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0,<bang>0)
+
+" Override Colors command. You can safely do this in your .vimrc as fzf.vim
+" will not override existing commands.
+command! -bang Colors
+            \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin30%,0'}, <bang>0)
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with
+"?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+            \ call fzf#vim#ag(<q-args>,
+            \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+            \                         :fzf#vim#with_preview('right:50%:hidden', '?'),
+            \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('right:50%:hidden','?'),
+            \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+
+
+
+
+
+" [Usage]
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+
+" If installed using git
+set rtp+=~/.fzf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
