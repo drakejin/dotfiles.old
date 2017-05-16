@@ -91,4 +91,10 @@ rm -rf ~/.vimrc ~/.vim ~/.viminfo ~/.gitconfig
 
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+echo "export PATH=PATH:~/.fzf/bin" >> ~/.zshrc
+
+
 reboot
