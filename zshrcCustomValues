@@ -1,13 +1,7 @@
-NODE_HOME=/usr/local/develop/language/node-6.9.4
 HADOOP_HOME=/usr/local/develop/tools/hadoop-1.2.1
 PYENV_ROOT=$HOME/.pyenv
-PATH=$PATH:$NODE_HOME/bin:$PYENV_ROOT/bin:$HADOOP_HOME/bin
+PATH=$PATH:$PYENV_ROOT/bin:$HADOOP_HOME/bin
 
 
 source ~/.dotfiles/python/pythonValues
-source ~/.dotfiles/python/pythonValues
-source ~/.dotfiles/nodejs/nodeValues
-source ~/.dotfiles/nodejs/nodeValues
-source ~/.dotfiles/nodejs/nodeValues
-source ~/.dotfiles/nodejs/nodeValues
 source ~/.dotfiles/nodejs/nodeValues

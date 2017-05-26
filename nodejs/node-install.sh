@@ -13,7 +13,11 @@
 git clone https://github.com/creationix/nvm.git ~/.nvm
 
 echo "source ~/.dotfiles/nodejs/nodeValues" >> ~/.dotfiles/zshrcCustomValues
+zsh 
+source ~/.zshrc
+
 nvm install node --lts
+
 
 
 npm install -g bower gulp eslint eslint-cli babel-cli

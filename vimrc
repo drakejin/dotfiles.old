@@ -110,10 +110,10 @@ Plug 'honza/vim-snippets'
 "---------------------------
 "  vim-scripts for plugins
 "---------------------------
-Plug 'IndexedSearch'                    " Search results counter
-Plug 'matchit.zip'                      " XML/HTML tags navigation
-Plug 'Wombat'                           " Gvim colorscheme
-Plug 'YankRing.vim'                     " Yank history navigation
+Plug 'vim-scripts/IndexedSearch'                    " Search results counter
+Plug 'vim-scripts/matchit.zip'                      " XML/HTML tags navigation
+Plug 'vim-scripts/Wombat'                           " Gvim colorscheme
+Plug 'vim-scripts/YankRing.vim'                     " Yank history navigation
 Plug 'fisadev/vim-ctrlp-cmdpalette'     " Extension to ctrlp, for fuzzy command finder 
 Plug 'fisadev/dragvisuals.vim'          " Drag visual blocks arround
 
