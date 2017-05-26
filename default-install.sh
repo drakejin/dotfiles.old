@@ -17,7 +17,7 @@
 
 #Init package installations
 #Please Run install.sh on user auth. 
-sudo apt-get install -y git git-flow tig vim tmux gcc make cmake
+sudo apt-get install -y open-vm-tools open-vm-tools-desktop git-flow tig vim tmux gcc make cmake
 
 
 #Setting zsh
@@ -96,7 +96,7 @@ ln -s ~/.dotfiles/vimrc ~/.vimrc
 # fzf " File searcher
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-echo "export PATH=PATH:~/.fzf/bin" >> ~/.zshrc
+echo "export PATH=$PATH:~/.fzf/bin" >> ~/.zshrc
 
 # Ag " Code Searcher
 sudo apt-get install -y silversearcher-ag

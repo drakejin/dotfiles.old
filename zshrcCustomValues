@@ -5,3 +5,9 @@ PATH=$PATH:$NODE_HOME/bin:$PYENV_ROOT/bin:$HADOOP_HOME/bin
 
 
 source ~/.dotfiles/python/pythonValues
+source ~/.dotfiles/python/pythonValues
+source ~/.dotfiles/nodejs/nodeValues
+source ~/.dotfiles/nodejs/nodeValues
+source ~/.dotfiles/nodejs/nodeValues
+source ~/.dotfiles/nodejs/nodeValues
+source ~/.dotfiles/nodejs/nodeValues
