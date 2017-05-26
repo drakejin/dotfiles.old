@@ -1,0 +1,6 @@
+UtsRelease 3.0.101-63-trace
+UtsMachine i386
+ModVersion yes
+SMP yes
+PageOffset C0000000
+Comment 3.0.101-63-trace SLE 11SP4

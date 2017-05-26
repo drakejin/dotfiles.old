@@ -550,12 +550,12 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 " Command for git grep
 " - fzf#vim#grep(command, with_column, [options], [fullscreen])
 command! -bang -nargs=* GGrep
-            \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0,<bang>0)
+            \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
 " Override Colors command. You can safely do this in your .vimrc as fzf.vim
 " will not override existing commands.
 command! -bang Colors
-            \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin30%,0'}, <bang>0)
+            \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 
 " Augmenting Ag command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
@@ -578,7 +578,7 @@ command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
             \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
-            \           : fzf#vim#with_preview('right:50%:hidden','?'),
+            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 
 " Likewise, Files command with preview window
@@ -592,6 +592,8 @@ command! -bang -nargs=? -complete=dir Files
 
 " [Usage]
 
+"same prefix to the commands
+let g:fzf_command_prefix = 'Fzf'
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -613,7 +615,8 @@ set rtp+=~/.fzf
 
 
 
-
+" Ag Code Searcher Install 
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 

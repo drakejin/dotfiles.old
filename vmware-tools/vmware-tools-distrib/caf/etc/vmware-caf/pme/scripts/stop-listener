@@ -1,0 +1,9 @@
+#!/bin/sh
+
+scriptsDir=$(dirname $(readlink -f $0))
+configDir=$scriptsDir/../config
+. $configDir/cafenv.config
+. $scriptsDir/caf-common
+
+processName="CommAmqpListener"
+stopProcess "$CAF_BIN_DIR" "$processName"
