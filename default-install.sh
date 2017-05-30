@@ -17,8 +17,8 @@
 
 #Init package installations
 #Please Run install.sh on user auth. 
-sudo apt-get install -y open-vm-tools open-vm-tools-desktop git-flow tig vim tmux gcc make cmake
-
+sudo apt-get install -y ruby ruby-dev open-vm-tools open-vm-tools-desktop git-flow tig vim tmux gcc make cmake
+sudo gem install bundle
 
 #Setting zsh
 sudo apt-get install -y zsh
