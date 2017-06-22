@@ -12,7 +12,7 @@ curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compos
 sudo chmod +x /usr/local/bin/docker-compose
 
 
-echo 'PATH=PATH:/usr/local/bin' >> ~/.bashrc 
+echo 'PATH=$PATH:/usr/local/bin' >> ~/.bashrc 
 source ~/.bashrc
 
 
