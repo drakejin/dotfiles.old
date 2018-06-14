@@ -86,3 +86,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.dotfiles/macbook/zshrcValues
+
+M2_HOME=/Users/drakejin/Tools/apache-maven-3.5.2
+M2=$M2_HOME/bin
+
+PATH=$PATH:~/Applications/DrakeJinScriptApp:$M2
+
+export PATH M2_HOME M2
+
+
+tmux
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+
+export PATH="$PATH:$HOME/.rvm/bin"

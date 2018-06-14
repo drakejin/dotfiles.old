@@ -1,0 +1,58 @@
+#!/bin/bash 
+
+SSH_HOME=~/.aws/pems
+MY_PEM_KEY=meetup.pem
+PEM_PATH=$SSH_HOME/$MY_PEM_KEY
+
+## 접속 url은 반드시 public DNS로 설정한다.
+
+# NUM = 1
+MEETUP_CONTAINER1='ec2-user@ec2-52-78-142-64.ap-northeast-2.compute.amazonaws.com'
+MEETUP_CONTAINER1_NAME="AWS meetup Container #1"
+
+# NUM = 2
+MEETUP_CONTAINER2='ec2-user@ec2-52-79-210-163.ap-northeast-2.compute.amazonaws.com'
+MEETUP_CONTAINER2_NAME="AWS meetup Container-slave#2"
+
+
+# NUM = 3
+MEETUP_CONTAINER3='ec2-user@ec2-13-125-244-54.ap-northeast-2.compute.amazonaws.com'
+MEETUP_CONTAINER3_NAME="AWS meetup Container-swam#1"
+
+echo "=========================================================="
+echo "======= 용지니는 공부한다 이렇게 우쨔쟈쟈  ======="
+echo "=========================================================="
+echo "어느 서버에 접속하시겠습니까? [n] 을 입력해주세요 \n"
+
+echo "[1] ${MEETUP_CONTAINER1_NAME}"
+echo "[2] ${MEETUP_CONTAINER2_NAME}"
+echo "[3] ${MEETUP_CONTAINER3_NAME}"
+
+read NUM
+
+if [ $NUM == "1" ] 
+then 
+    echo "${MEETUP_CONTAINER1_NAME} 에 접속합니다"
+    echo $PEM_PATH $MEETUP_CONTAINER1
+    ssh -i $PEM_PATH $MEETUP_CONTAINER1
+
+elif [ $NUM == "2" ] 
+then 
+    echo "${MEETUP_CONTAINER2_NAME} 에 접속합니다"
+    echo $PEM_PATH $MEETUP_CONTAINER2
+    ssh -i $PEM_PATH $MEETUP_CONTAINER2
+
+
+elif [ $NUM == "3" ] 
+then 
+    echo "${MEETUP_CONTAINER3_NAME} 에 접속합니다"
+    echo $PEM_PATH $MEETUP_CONTAINER3
+    ssh -i $PEM_PATH $MEETUP_CONTAINER3
+
+
+else 
+    echo "없는 번호입니다. 다시 확인하시고 실행해주시기 바랍니다."
+fi
+
+
+
