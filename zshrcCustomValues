@@ -1,7 +1,0 @@
-HADOOP_HOME=/usr/local/develop/tools/hadoop-1.2.1
-PYENV_ROOT=$HOME/.pyenv
-PATH=$PATH:$PYENV_ROOT/bin:$HADOOP_HOME/bin
-
-
-source ~/.dotfiles/python/pythonValues
-source ~/.dotfiles/nodejs/nodeValues

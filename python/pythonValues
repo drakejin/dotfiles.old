@@ -1,6 +1,0 @@
-
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv init -)"
-source ~/.autoenv/activate.sh
-
-
