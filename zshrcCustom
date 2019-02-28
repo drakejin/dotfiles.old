@@ -8,8 +8,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
-# pyenv-virtualenv setting
-eval "$(pyenv virtualenv-init -)"
-
 # autoenv setting
 source /usr/local/opt/autoenv/activate.sh
