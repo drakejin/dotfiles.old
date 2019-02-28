@@ -2,7 +2,7 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew update
-brew install -y git vim tree tig fzf the_silver_searcher pyenv pyenv-virtualenv autoenv git-flow-avh zsh-syntax-highlighting wget
+brew install -y git vim tree tig fzf the_silver_searcher zsh-syntax-highlighting wget
 brew upgrade vim
 brew cask install iterm2
 
